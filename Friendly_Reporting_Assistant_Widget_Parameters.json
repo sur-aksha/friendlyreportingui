@@ -1,16 +1,16 @@
 {
-    "id": "FriendlyReportingAssistantParameters",
-    "newInstancePrefix": "Parameters-FriendlyReporting-Assistant-Widget",
+    "id": "ExternalFriendlyReportingAssistantParameters",
+    "newInstancePrefix": "External-Parameters-FriendlyReporting-Assistant-Widget",
 	"eula": "",
 	"license": "",
     "version": "1.0.0",
-    "name": "Parameters-FriendlyReporting-Assistant-Widget",
-    "description": "Parameters - Friendly Reporting Assistant",
+    "name": "External Parameters-FriendlyReporting-Assistant-Widget",
+    "description": "External Parameters - Friendly Reporting Assistant",
     "vendor": "SAP Friendly Reporting",
     "webcomponents": [
         {
             "kind": "main",
-            "tag": "parameters-friendly-reporting-assistant-external",
+            "tag": "External-parameters-friendly-reporting-assistant",
             "url": "https://erdasheshi.github.io/friendlyreportingui.github.io/Friendly_Reporting_Assistant_Parameters.js",
             "integrity": "",
             "ignoreIntegrity": true
