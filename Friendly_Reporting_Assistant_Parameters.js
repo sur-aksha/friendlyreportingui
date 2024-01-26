@@ -143,6 +143,6 @@
       this.initMain();
     }
   }
-  customElements.define("parameters-friendly-reporting-assistant-external", Widget);
+  customElements.define("external-parameters-friendly-reporting-assistant", Widget);
 })()
 ;

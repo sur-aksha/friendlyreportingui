@@ -139,5 +139,5 @@
       this.initMain();
     }
   }
-  customElements.define("friendly-reporting-assistant-external", Widget);
+  customElements.define("external-friendly-reporting-assistant", Widget);
 })();
