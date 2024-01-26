@@ -1,0 +1,47 @@
+{
+    "id": "FriendlyReportingAssistantParameters",
+    "newInstancePrefix": "Parameters-FriendlyReporting-Assistant-Widget",
+	"eula": "",
+	"license": "",
+    "version": "1.0.0",
+    "name": "Parameters-FriendlyReporting-Assistant-Widget",
+    "description": "Parameters - Friendly Reporting Assistant",
+    "vendor": "SAP Friendly Reporting",
+    "webcomponents": [
+        {
+            "kind": "main",
+            "tag": "parameters-friendly-reporting-assistant-external",
+            "url": "https://erdasheshi.github.io/friendlyreportingui.github.io/Friendly_Reporting_Assistant_Parameters.js",
+            "integrity": "",
+            "ignoreIntegrity": true
+        }
+    ],
+    "properties": {
+        "user_id": { "type": "string" },
+        "dashboard_name": { "type": "string" },
+        "local_datetime": { "type": "string"  },
+        "authentication": { "type": "string", "default": "Bearer sc9as24jlpp7994x" }
+    },
+    "methods": {
+        "setUserID": {
+            "description": "Set user ID",
+            "parameters": [ { "name": "user_id", "type": "string" } ],
+            "body": "this.user_id = user_id;"
+        },
+        "setDashboardName": {
+            "description": "Set user ID",
+            "parameters": [ { "name": "dashboard_name", "type": "string" } ],
+            "body": "this.dashboard_name = dashboard_name;"
+        },
+        "setLocalDateTime": {
+            "description": "Set user ID",
+            "parameters": [ { "name": "local_datetime", "type": "string" } ],
+            "body": "this.local_datetime = local_datetime;"
+        }
+    },
+    "events": {
+        "onClick": {
+            "description": "User Clicked."
+        }
+    }
+}
