@@ -59,7 +59,7 @@
     }
 </style>
   <div style="display: flex; align-items: center; justify-content: center;">
-  <img src="https://erdasheshi.github.io/fr.github.io/FR_Icon.jpg"/>
+  <img src="https://erdasheshi.github.io/friendlyreportingui.github.io/FR_Icon.jpg"/>
   <h1>Friendly Reporting Assistant</h1>
   </div>
   <div class="input-container">
