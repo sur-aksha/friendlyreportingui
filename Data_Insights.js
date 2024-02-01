@@ -22,7 +22,7 @@
     .insights-title {
       font-family: Arial, sans-serif;
       font-size: 24px;
-      color: #333;
+      color: #6bf;
       text-align: center;
       margin-bottom: 20px;
     }
@@ -35,13 +35,13 @@
     .insights-list li {
       font-family: Arial, sans-serif;
       font-size: 18px;
-      color: #eee;
+      color: #777;
       margin-bottom: 10px;
     }
 
     /* Style for the input container */
     .input-container {
-        display: block;
+        display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 20px;
@@ -80,8 +80,7 @@
 
   <div class="insights">
     <h1 class="insights-title">Data Insights</h1>
-      <ul id="insightsList" class="insights-list">
-          
+      <ul id="insightsList" class="insights-list"> 
       </ul>
   </div>
   <div class="input-container">
@@ -113,13 +112,6 @@
       const generatedText = this.shadowRoot.getElementById("generated-text");
       generatedText.value = "";
       const generateButton = this.shadowRoot.getElementById("insights-button");
-
-      //Initialise list elements
-      const insights = this.getRandomInsights();
-      const insightsList = this.shadowRoot.getElementById("insightsList");
-      insights.forEach(element => {
-        insightsList.innerHTML += ('<li>'+element+'</li>');
-      });
 
       // Handle button click
       generateButton.addEventListener("click", async () => {
@@ -216,7 +208,6 @@
       randomIDs.forEach(element => {
         randomInsights.push(jsonData.insights[element].content);
       });
-      console.log("Insights:",randomInsights);
       return randomInsights;
     }
     getRandomIDs(length){
@@ -235,6 +226,13 @@
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       this.initMain();
+      
+      //Initialise list elements
+      const insights = this.getRandomInsights();
+      const insightsList = this.shadowRoot.getElementById("insightsList");
+      insights.forEach(element => {
+        insightsList.innerHTML += ('<li>'+element+'</li>');
+      });
     }
   }
   customElements.define("external-friendly-reporting-insights", Widget);
