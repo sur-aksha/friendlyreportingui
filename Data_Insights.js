@@ -47,14 +47,6 @@
         margin-bottom: 5px;
     }
 
-    /* Style for the output container */
-    .output-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
     /* Style for the generated text area */
     #generated-text {
         padding: 10px;
@@ -95,9 +87,8 @@
       <input type="text" id="text-input" placeholder="Question...">
       <button id="insights-button">Get Insights</button>
   </div>
-  <div class="output-container">
     <textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
-  </div>  `;
+  `;
   class Widget extends HTMLElement {
     constructor() {
       super();
