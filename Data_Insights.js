@@ -7,7 +7,7 @@
     /* Style for the container */
     div {
         margin: 25px auto;
-        max-width: 90%;
+        max-width: 80%;
     }
 
     /* Style for the insights, title and list */
