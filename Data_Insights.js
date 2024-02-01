@@ -49,11 +49,11 @@
 
     /* Style for the generated text area */
     #generated-text {
-        padding: 10px 3%;
+        padding: 10px;
         font-size: 16px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        width:94%;
+        width:70%;
     }
 
     /* Style for the button */
@@ -210,13 +210,12 @@
       });
       return randomInsights;
     }
-    getRandomIDs(length, max){
+    getRandomIDs(numberOfInsights, maxInsights){
       let arr = [];
-      while(arr.length < length){
-          let r = Math.floor(Math.random() * max);
+      while(arr.length < numberOfInsights){
+          let r = Math.floor(Math.random() * maxInsights);
           if(arr.indexOf(r) === -1) arr.push(r);
       }
-      console.log(arr);
       return arr;
     }
     onCustomWidgetBeforeUpdate(changedProperties) {
