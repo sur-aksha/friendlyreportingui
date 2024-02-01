@@ -216,6 +216,7 @@
           let r = Math.floor(Math.random() * max);
           if(arr.indexOf(r) === -1) arr.push(r);
       }
+      console.log(arr);
       return arr;
     }
     onCustomWidgetBeforeUpdate(changedProperties) {
