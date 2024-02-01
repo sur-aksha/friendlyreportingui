@@ -7,7 +7,7 @@
     /* Style for the container */
     div {
         margin: 25px auto;
-        max-width: 80%;
+        max-width: 85%;
     }
 
     /* Style for the insights, title and list */
@@ -21,20 +21,16 @@
 
     .insights-title {
       font-family: Arial, sans-serif;
-      font-size: 80%;
       color: #6ef;
       text-align: center;
-      margin-bottom: 20px;
     }
 
     .insights-list {
       list-style-type: disc;
-      margin-left: 20px;
     }
   
     .insights-list li {
       font-family: Arial, sans-serif;
-      font-size: 70%;
       color: #777;
       margin-bottom: 10px;
     }
