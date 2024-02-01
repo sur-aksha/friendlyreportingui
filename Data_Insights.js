@@ -149,7 +149,7 @@
           .catch((error) => console.error(`Fetch Error: ${error}`));
       });
     }
-    getRandomInsights(){
+    getDataInsights(){
       // replace with actual insights in production 
       const jsonData = {
         "insights": [
@@ -203,17 +203,17 @@
             "name": "I556644"
         }
       };
-      let randomIDs = this.getRandomIDs(3);
+      let randomIDs = this.getRandomIDs(3, 9);
       let randomInsights = [];
       randomIDs.forEach(element => {
         randomInsights.push(jsonData.insights[element].content);
       });
       return randomInsights;
     }
-    getRandomIDs(length){
+    getRandomIDs(length, max){
       let arr = [];
       while(arr.length < length){
-          let r = Math.floor(Math.random() * length);
+          let r = Math.floor(Math.random() * max);
           if(arr.indexOf(r) === -1) arr.push(r);
       }
       return arr;
@@ -226,9 +226,9 @@
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       this.initMain();
-      
+
       //Initialise list elements
-      const insights = this.getRandomInsights();
+      const insights = this.getDataInsights();
       const insightsList = this.shadowRoot.getElementById("insightsList");
       insights.forEach(element => {
         insightsList.innerHTML += ('<li>'+element+'</li>');
