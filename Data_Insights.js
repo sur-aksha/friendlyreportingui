@@ -211,17 +211,18 @@
             "name": "I556644"
         }
       };
-      var randomIDs = this.getRandomIDs(3);
-      var randomInsights = [];
+      let randomIDs = this.getRandomIDs(3);
+      let randomInsights = [];
       randomIDs.forEach(element => {
         randomInsights.push(jsonData.insights[element].content);
       });
+      console.log("Insights:",randomInsights);
       return randomInsights;
     }
     getRandomIDs(length){
-      var arr = [];
+      let arr = [];
       while(arr.length < length){
-          var r = Math.floor(Math.random() * length);
+          let r = Math.floor(Math.random() * length);
           if(arr.indexOf(r) === -1) arr.push(r);
       }
       return arr;
