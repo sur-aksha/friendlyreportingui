@@ -44,7 +44,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
 
     /* Style for the output container */
@@ -61,7 +61,7 @@
         font-size: 16px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        width:70%;
+        width:90%;
     }
 
     /* Style for the button */
