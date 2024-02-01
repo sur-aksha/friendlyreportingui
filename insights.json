@@ -1,0 +1,29 @@
+{
+    "insights": [
+        {
+            "id": 1,
+            "title": "Insight 1",
+            "content": "There was a spike in the runtime from the previous week. You might want to look into that"
+        },
+        {
+            "id": 2,
+            "title": "Insight 2",
+            "content": "The failures have stabilised over the past 3 weeks with 1 lesser failure per week."
+        },
+        {
+            "id": 2,
+            "title": "Insight 2",
+            "content": "The documentation has new sections detailing over the newly added charts."
+        }
+    ],
+    "details": [
+        {
+            "id": 1,
+            "body": "Bla bla bla bla bla Insight 1",
+            "insightId": 1
+        }
+    ],
+    "user": {
+        "name": "I556644"
+    }
+}
