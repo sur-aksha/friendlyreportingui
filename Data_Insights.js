@@ -21,8 +21,8 @@
 
     .insights-title {
       font-family: Arial, sans-serif;
-      font-size: 24px;
-      color: #6bf;
+      font-size: 80%;
+      color: #6ef;
       text-align: center;
       margin-bottom: 20px;
     }
@@ -34,7 +34,7 @@
   
     .insights-list li {
       font-family: Arial, sans-serif;
-      font-size: 18px;
+      font-size: 70%;
       color: #777;
       margin-bottom: 10px;
     }
@@ -50,7 +50,7 @@
     /* Style for the generated text area */
     #generated-text {
         padding: 10px;
-        font-size: 16px;
+        font-size: 80%;
         border: 1px solid #ccc;
         border-radius: 5px;
         width:94%;
