@@ -84,6 +84,7 @@
       background-color: #3cb6a9;
       border-radius: 5px;
       width: 20%;
+      height: 20%;
     }
 
     /* Style for the input field */
