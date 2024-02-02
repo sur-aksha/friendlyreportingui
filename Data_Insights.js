@@ -245,6 +245,7 @@
       this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
     }
     getInsightsFromAPI(apiURL, apiKey){
+    
       const insightsList = this.shadowRoot.getElementById("insightsList");
       const requestOptions = {
         method: 'GET',
@@ -259,17 +260,19 @@
           }
           return response.json();
         })
-        .then(this.updateWidgetWithInsights(insightsList))
+        .then(data => {
+          data.insights.forEach(element => {
+             insightsList.innerHTML += ('<li>'+element+'</li>');
+          });
+        })
         .catch(error => {
           console.error('Error:', error);
         });
     }
-     // update the widget with insights from the API call
-     updateWidgetWithInsights(insightsList, data){
-      data.insights.forEach(element => {
-        insightsList.innerHTML += ('<li>'+element+'</li>');
-      })
-     }
+     // update the widget with insights from the API
+    //  updateWidgetWithInsights(data){
+      
+    //  }
     
   }
   customElements.define("external-friendly-reporting-insights", Widget);
