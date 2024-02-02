@@ -261,7 +261,9 @@
         })
         .then(data => {
           const insightsList = this.shadowRoot.getElementById("insightsList");
-          insightsList.innerHTML += ('<li>'+data+'</li>');
+          Object.keys(data).forEach(element => {
+             insightsList.innerHTML += ('<li>'+element+'</li>');
+          });
         })
         .catch(error => {
           console.error('Error:', error);
