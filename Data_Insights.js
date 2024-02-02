@@ -260,11 +260,8 @@
           return response.json();
         })
         .then(data => {
-          console.log(data);
           const insightsList = this.shadowRoot.getElementById("insightsList");
-          data.forEach(element => {
-             insightsList.innerHTML += ('<li>'+element+'</li>');
-          });
+          insightsList.innerHTML += ('<li>'+data+'</li>');
         })
         .catch(error => {
           console.error('Error:', error);
