@@ -296,7 +296,9 @@
         })
         .catch(error => {
           // console.error('Error:', error);
-          this.getDataInsights().forEach(element => {
+          const insights = this.getDataInsights();
+          console.log(insights);
+          insights.forEach(element => {
             insightsList.innerHTML += ('<li>'+element+'</li>');
          });
         });
