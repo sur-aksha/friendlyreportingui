@@ -79,6 +79,13 @@
         width: 25%;
     }
 
+    #read-insights-button{
+      padding: 10px;
+      background-color: #3cb6a9;
+      border-radius: 5px;
+      width: 20%;
+    }
+
     /* Style for the input field */
     #text-input {
         padding: 10px;
