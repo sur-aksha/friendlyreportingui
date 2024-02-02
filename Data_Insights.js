@@ -31,7 +31,7 @@
   
     .insights-list li {
       font-family: Arial, sans-serif;
-      color: #777;
+      color: #f97;
       margin-bottom: 10px;
     }
 
@@ -244,7 +244,7 @@
 
       this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
     }
-    
+
     // update the widget with insights from the API
     getInsightsFromAPI(apiURL, apiKey){
     
