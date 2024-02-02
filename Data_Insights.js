@@ -98,8 +98,11 @@
 
   <div class="insights">
     <div class="insights-container">
-    <h1 class="insights-title">Data Insights</h1>
-    <button id="read-insights-button" style="background: url(/microphone.png)></button>
+      <h1 class="insights-title">Data Insights</h1>
+      <button id="read-insights-button">
+        <img src="microphone.png"/>
+      </button>
+    </div>
     <ul id="insightsList" class="insights-list"></ul>
   </div>
   <div class="input-container">
