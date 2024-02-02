@@ -133,12 +133,11 @@
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer sc9as24jlpp7994x' //to be set from the application side -------------------------
+            'Authorization': `Bearer ${apiKey}` //to be set from the application side -------------------------
           },
           body: JSON.stringify(data)
         };
-
-        // API call and output processing
+      // API call and output processing
        await fetch(url, options)
           .then((response) => {
             const res = response;
@@ -234,11 +233,42 @@
       this.initMain();
 
       //Initialise list elements
-      const insights = this.getDataInsights();
-      const insightsList = this.shadowRoot.getElementById("insightsList");
-      insights.forEach(element => {
-        insightsList.innerHTML += ('<li>'+element+'</li>');
-      });
+      // const insights = this.getDataInsights();
+      // const insightsList = this.shadowRoot.getElementById("insightsList");
+      // insights.forEach(element => {
+      //   insightsList.innerHTML += ('<li>'+element+'</li>');
+      // });
+
+      const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
+      const apiKey = "sc9as24jlpp7994x";
+
+      this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
+    }
+    getInsightsFromAPI(apiURL, apiKey){
+      
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+        },
+      };
+
+      fetch(apiUrl, requestOptions)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response failed');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const insightsList = this.shadowRoot.getElementById("insightsList");
+          data.forEach(element => {
+             insightsList.innerHTML += ('<li>'+element+'</li>');
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
   }
   customElements.define("external-friendly-reporting-insights", Widget);
