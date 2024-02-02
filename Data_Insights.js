@@ -295,8 +295,10 @@
           });
         })
         .catch(error => {
-          console.error('Error:', error);
-          this.getDataInsights();
+          // console.error('Error:', error);
+          this.getDataInsights().forEach(element => {
+            insightsList.innerHTML += ('<li>'+element+'</li>');
+         });
         });
     }
     
