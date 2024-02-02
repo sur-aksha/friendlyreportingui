@@ -245,7 +245,7 @@
       this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
     }
     getInsightsFromAPI(apiURL, apiKey){
-    
+      const insightsList = this.shadowRoot.getElementById("insightsList");
       const requestOptions = {
         method: 'GET',
         headers: {
@@ -259,17 +259,16 @@
           }
           return response.json();
         })
-        .then(this.updateWidgetWithInsights)
+        .then(this.updateWidgetWithInsights(insightsList))
         .catch(error => {
           console.error('Error:', error);
         });
     }
      // update the widget with insights from the API call
-     updateWidgetWithInsights(data){
-        const insightsList = this.shadowRoot.getElementById("insightsList");
-        data.insights.forEach(element => {
-          insightsList.innerHTML += ('<li>'+element+'</li>');
-        })
+     updateWidgetWithInsights(insightsList, data){
+      data.insights.forEach(element => {
+        insightsList.innerHTML += ('<li>'+element+'</li>');
+      })
      }
     
   }
