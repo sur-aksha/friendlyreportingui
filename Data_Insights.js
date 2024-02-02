@@ -142,11 +142,11 @@
       //Handle button click
       readInsightsButton.addEventListener('click', () => {
         const insightsList = this.shadowRoot.getElementById("insightsList");
-        insightsList.forEach(insight => {
-          const insightItem = insight.value;
+        for(const element of insightsList.childNodes){
+          const insightItem = element.value;
           const speech = new SpeechSynthesisUtterance(insightItem);
           window.speechSynthesis.speak(speech);
-        }); 
+        }
       });
 
       // Handle button click
@@ -298,12 +298,12 @@
           });
         })
         .catch(error => {
-          // console.error('Error:', error);
-          const insights = this.getDataInsights();
-          console.log(insights);
-          insights.forEach(element => {
-            insightsList.innerHTML += ('<li>'+element+'</li>');
-         });
+         console.error('Error:', error);
+          //   const insights = this.getDataInsights();
+          //   console.log(insights);
+          //   insights.forEach(element => {
+          //     insightsList.innerHTML += ('<li>'+element+'</li>');
+          //  });
         });
     }
     
