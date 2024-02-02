@@ -81,10 +81,10 @@
 
     #read-insights-button{
       padding: 10px;
-      background-color: #3cb6a9;
-      border-radius: 5px;
-      width: 20%;
-      height: 20%;
+      background-color: #777;
+      border-radius: 50%;
+      width: 10%;
+      height: 10%;
     }
 
     /* Style for the input field */
@@ -101,7 +101,7 @@
     <div class="insights-container">
       <h1 class="insights-title">Data Insights</h1>
       <button id="read-insights-button">
-        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
+        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="30" height="30">
       </button>
     </div>
     <ul id="insightsList" class="insights-list"></ul>
@@ -145,7 +145,7 @@
         const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
         console.log(insightsList);
         for(const element of insightsList){
-          const insightItem = element.value;
+          const insightItem = element.textContent;
           const speech = new SpeechSynthesisUtterance(insightItem);
           window.speechSynthesis.speak(speech);
         }
