@@ -252,7 +252,6 @@
           'Authorization': `Bearer ${apiKey}`,
         },
       };
-
       fetch(apiURL, requestOptions)
         .then((response) => {
           if (!response.ok) {
@@ -261,6 +260,7 @@
           return response.json();
         })
         .then(data => {
+          console.log(data);
           const insightsList = this.shadowRoot.getElementById("insightsList");
           data.forEach(element => {
              insightsList.innerHTML += ('<li>'+element+'</li>');
