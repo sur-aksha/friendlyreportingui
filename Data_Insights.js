@@ -244,9 +244,11 @@
 
       this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
     }
+    
+    // update the widget with insights from the API
     getInsightsFromAPI(apiURL, apiKey){
     
-      const insightsListElement = this.shadowRoot.getElementById("insightsList");
+      const insightsList = this.shadowRoot.getElementById("insightsList");
       const requestOptions = {
         method: 'GET',
         headers: {
@@ -260,16 +262,14 @@
           }
           return response.json();
         })
-        .then(this.updateWidgetWithInsights(insightsListElement))
+        .then(data => {
+          data.insights.forEach(element => {
+             insightsList.innerHTML += ('<li>'+element+'</li>');
+          });
+        })
         .catch(error => {
           console.error('Error:', error);
         });
-    }
-    // update the widget with insights from the API
-    updateWidgetWithInsights(insightsListElement, data){
-      data.insights.forEach(element => {
-        insightsListElement.innerHTML += ('<li>'+element+'</li>');
-      });
     }
     
   }
