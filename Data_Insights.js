@@ -101,7 +101,7 @@
     <div class="insights-container">
       <h1 class="insights-title">Data Insights</h1>
       <button id="read-insights-button">
-        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/>
+        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
       </button>
     </div>
     <ul id="insightsList" class="insights-list"></ul>
