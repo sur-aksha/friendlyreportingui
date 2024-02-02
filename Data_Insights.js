@@ -100,7 +100,7 @@
     <div class="insights-container">
       <h1 class="insights-title">Data Insights</h1>
       <button id="read-insights-button">
-        <img src="microphone.png"/>
+        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/>
       </button>
     </div>
     <ul id="insightsList" class="insights-list"></ul>
@@ -141,8 +141,8 @@
 
       //Handle button click
       readInsightsButton.addEventListener('click', () => {
-        const insightsList = this.shadowRoot.getElementById("insightsList");
-        for(const element of insightsList.childNodes){
+        const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
+        for(const element of insightsList){
           const insightItem = element.value;
           const speech = new SpeechSynthesisUtterance(insightItem);
           window.speechSynthesis.speak(speech);
