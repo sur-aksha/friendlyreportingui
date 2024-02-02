@@ -143,9 +143,10 @@
       //Handle button click
       readInsightsButton.addEventListener('click', () => {
         const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
-        console.log(insightsList);
+        
         for(const element of insightsList){
           const insightItem = element.textContent;
+          console.log(insightItem);
           const speech = new SpeechSynthesisUtterance(insightItem);
           window.speechSynthesis.speak(speech);
         }
