@@ -51,6 +51,13 @@
         margin-bottom: 5px;
     }
 
+    /* Style for insights container*/
+    .insights-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     /* Style for the generated text area */
     #generated-text {
         padding: 10px;
@@ -83,9 +90,10 @@
 </style>
 
   <div class="insights">
+    <div class="insights-container">
     <h1 class="insights-title">Data Insights</h1>
-      <ul id="insightsList" class="insights-list"> 
-      </ul>
+    <button id="read-insights-button" style="background: url(microphone.png)></button>
+    <ul id="insightsList" class="insights-list"></ul>
   </div>
   <div class="input-container">
       <input type="text" id="text-input" placeholder="Question...">
@@ -118,6 +126,18 @@
       const generatedText = this.shadowRoot.getElementById("generated-text");
       generatedText.value = "";
       const generateButton = this.shadowRoot.getElementById("insights-button");
+      const readInsightsButton = this.shadowRoot.getElementById("read-insights-button");
+
+
+      //Handle button click
+      readInsightsButton.addEventListener('click', () => {
+        const insightsList = this.shadowRoot.getElementById("insightsList");
+        insightsList.forEach(insight => {
+          const insightItem = insight.value;
+          const speech = new SpeechSynthesisUtterance(insightItem);
+          window.speechSynthesis.speak(speech);
+        }); 
+      });
 
       // Handle button click
       generateButton.addEventListener("click", async () => {
