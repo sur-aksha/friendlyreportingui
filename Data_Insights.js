@@ -80,6 +80,16 @@
         width: 25%;
     }
 
+    #speech-input-button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #3cb6a9;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 15%;
+  }
+
     #read-insights-button{
       padding: 10px;
       background-color: #777;
@@ -109,6 +119,9 @@
   </div>
   <div class="input-container">
       <input type="text" id="text-input" placeholder="Question...">
+      <button id="speech-input-button">
+        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="30" height="30">
+      </button>
       <button id="insights-button">Get Insights</button>
   </div>
   <div class="output-container">
@@ -124,9 +137,7 @@
       shadowRoot.appendChild(template.content.cloneNode(true));
       this._props = {};
     }
-    async connectedCallback() {
-      this.initMain();
-    }
+    
     async initMain() {
       //Initialize parameters and set default as ""
       const { user_id = "" } = this._props || {};
@@ -142,12 +153,13 @@
       generatedText.value = "";
       const generateButton = this.shadowRoot.getElementById("insights-button");
       const readInsightsButton = this.shadowRoot.getElementById("read-insights-button");
+      const speechInputButton = this.shadowRoot.getElementById("speech-input-button");
 
 
-      //Handle button click
+      //Handle read insights button click
       readInsightsButton.addEventListener('click', () => {
         const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
-        
+         
         for(const element of insightsList){
           const insightItem = element.textContent;
           console.log(insightItem);
@@ -155,6 +167,9 @@
           speechSynth.speak(speech);
         }
       });
+
+      // Handle speech input button click
+      //speechInputButton.addEventListener('click',)
 
       // Handle button click
       generateButton.addEventListener("click", async () => {
