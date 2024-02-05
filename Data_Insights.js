@@ -64,7 +64,8 @@
         font-size: 80%;
         border: 1px solid #ccc;
         border-radius: 5px;
-        width:94%;
+        width: 95%;
+        height: 80%;
     }
 
     /* Style for the button */
@@ -141,15 +142,20 @@
 
 
       //Handle button click
-      readInsightsButton.addEventListener('click', () => {
+      readInsightsButton.addEventListener('click', async () => {
         const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
-        
+        const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
+        const apiKey = "sc9as24jlpp7994x";
+
         for(const element of insightsList){
           const insightItem = element.textContent;
           console.log(insightItem);
           const speech = new SpeechSynthesisUtterance(insightItem);
           window.speechSynthesis.speak(speech);
         }
+
+        this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
+
       });
 
       // Handle button click
@@ -170,7 +176,7 @@
           },
           body: JSON.stringify(data)
         };
-      // API call and output processing
+       // API call and output processing
        await fetch(url, options)
           .then((response) => {
             const res = response;
@@ -272,10 +278,7 @@
       //   insightsList.innerHTML += ('<li>'+element+'</li>');
       // });
 
-      const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
-      const apiKey = "sc9as24jlpp7994x";
-
-      this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
+      
     }
 
     // update the widget with insights from the API
