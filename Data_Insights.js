@@ -150,37 +150,21 @@
       // Window speech constants
       const speechSynth = window.speechSynthesis;
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      
       const recognition = new SpeechRecognition();
-      // Configure recognition settings
-      recognition.lang = 'en-US';
-      recognition.interimResults = true;
-      
-      recognition.onresult = (event) => {
-        const result = event.results[event.results.length - 1];
-        console.log(result);
-        const transcript = result[0].transcript;
-        promptInput.textContent = transcript;
-      };
 
-      // Handle recognition errors
-      recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
-      };
-
-      // Re-enable the button when recognition ends
-      recognition.onend = () => {
-        speechInputButton.disabled = false;
-      };
+      //configure speech recognition
+      this.configureSpeechRecognition(recognition, promptInput, speechInputButton);
       
 
       //Get UI elements
+      const promptInput = this.shadowRoot.getElementById("text-input");
       const generatedText = this.shadowRoot.getElementById("generated-text");
       generatedText.value = "";
       const generateButton = this.shadowRoot.getElementById("insights-button");
       const readInsightsButton = this.shadowRoot.getElementById("read-insights-button");
       const speechInputButton = this.shadowRoot.getElementById("speech-input-button");
 
+      
 
       //Handle read insights button click
       readInsightsButton.addEventListener('click', () => {
@@ -202,7 +186,6 @@
 
       // Handle button click
       generateButton.addEventListener("click", async () => {
-        const promptInput = this.shadowRoot.getElementById("text-input");
         const generatedText = this.shadowRoot.getElementById("generated-text");
         generatedText.value = "We are processing your request...";
         const prompt = promptInput.value;
@@ -236,6 +219,28 @@
       });
     }
 
+    configureSpeechRecognition(recognition, promptInput, speechInputButton){
+          // Configure recognition settings
+        recognition.lang = 'en-US';
+        recognition.interimResults = true;
+
+        recognition.onresult = (event) => {
+          const result = event.results[event.results.length - 1];
+          console.log(result);
+          const transcript = result[0].transcript;
+          promptInput.textContent = transcript;
+        };
+
+        // Handle recognition errors
+        recognition.onerror = (event) => {
+          console.error('Speech recognition error:', event.error);
+        };
+
+        // Re-enable the button when recognition ends
+        recognition.onend = () => {
+          speechInputButton.disabled = false;
+        };
+    }
     getDataInsights(){
       // replace with actual insights in production 
       const jsonData = {
