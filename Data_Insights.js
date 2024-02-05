@@ -153,8 +153,9 @@
       
       const recognition = new SpeechRecognition();
       // Configure recognition settings
-      recognition.continuous = true;
+      recognition.lang = 'en-US';
       recognition.interimResults = true;
+      this.configureSpeechRecognition(recognition);
       
 
       //Get UI elements
@@ -180,25 +181,6 @@
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
         recognition.start();
-
-        // Handle recognition results
-        recognition.onresult = (event) => {
-          const result = event.results[event.results.length - 1];
-          console.log(result);
-          const transcript = result[0].transcript;
-          promptInput.textContent = transcript;
-        };
-
-        // Handle recognition errors
-        recognition.onerror = (event) => {
-          console.error('Speech recognition error:', event.error);
-        };
-
-        // Re-enable the button when recognition ends
-        recognition.onend = () => {
-          speechInputButton.disabled = false;
-        };
-
         speechInputButton.disabled = true;
       });
 
@@ -236,6 +218,26 @@
           })
           .catch((error) => console.error(`Fetch Error: ${error}`));
       });
+    }
+
+    configureSpeechRecognition(recognition){
+        // Handle recognition results
+        recognition.onresult = (event) => {
+          const result = event.results[event.results.length - 1];
+          console.log(result);
+          const transcript = result[0].transcript;
+          this.promptInput.textContent = transcript;
+        };
+
+        // Handle recognition errors
+        recognition.onerror = (event) => {
+          console.error('Speech recognition error:', event.error);
+        };
+
+        // Re-enable the button when recognition ends
+        recognition.onend = () => {
+          speechInputButton.disabled = false;
+        };
     }
 
     getDataInsights(){
