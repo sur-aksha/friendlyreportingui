@@ -184,6 +184,7 @@
         // Handle recognition results
         recognition.onresult = (event) => {
           const result = event.results[event.results.length - 1];
+          console.log(result);
           const transcript = result[0].transcript;
           promptInput.textContent = transcript;
         };
