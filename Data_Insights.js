@@ -137,7 +137,9 @@
       shadowRoot.appendChild(template.content.cloneNode(true));
       this._props = {};
     }
-    
+    // async connectedCallback() {
+    //   this.initMain();
+    // }
     async initMain() {
       //Initialize parameters and set default as ""
       const { user_id = "" } = this._props || {};
@@ -169,7 +171,7 @@
       });
 
       // Handle speech input button click
-      //speechInputButton.addEventListener('click',)
+      speechInputButton.addEventListener('click',)
 
       // Handle button click
       generateButton.addEventListener("click", async () => {
@@ -321,11 +323,11 @@
         })
         .catch(error => {
          console.error('Error:', error);
-          //   const insights = this.getDataInsights();
-          //   console.log(insights);
-          //   insights.forEach(element => {
-          //     insightsList.innerHTML += ('<li>'+element+'</li>');
-          //  });
+            const insights = this.getDataInsights();
+            console.log(insights);
+            insights.forEach(element => {
+              insightsList.innerHTML += ('<li>'+element+'</li>');
+           });
         });
     }
     
