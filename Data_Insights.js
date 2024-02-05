@@ -87,7 +87,7 @@
       border: none;
       border-radius: 50%;
       cursor: pointer;
-      width: 15%;
+      width: 5%;
   }
 
     #read-insights-button{
@@ -149,6 +149,13 @@
 
       // Window speech constants
       const speechSynth = window.speechSynthesis;
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      
+      const recognition = new SpeechRecognition();
+      // Configure recognition settings
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      initialiseSpeechRecognition(recognition);
 
       //Get UI elements
       const generatedText = this.shadowRoot.getElementById("generated-text");
@@ -171,7 +178,10 @@
       });
 
       // Handle speech input button click
-      speechInputButton.addEventListener('click',)
+      speechInputButton.addEventListener('click', () => {
+        recognition.start();
+        speechInputButton.disabled = true;
+      });
 
       // Handle button click
       generateButton.addEventListener("click", async () => {
@@ -208,6 +218,27 @@
           .catch((error) => console.error(`Fetch Error: ${error}`));
       });
     }
+
+    initialiseSpeechRecognition(recognition){
+      const promptInput = this.shadowRoot.getElementById("text-input");
+      // Handle recognition results
+      recognition.onresult = (event) => {
+        const result = event.results[event.results.length - 1];
+        const transcript = result[0].transcript;
+        promptInput.textContent = transcript;
+      };
+
+      // Handle recognition errors
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+      };
+
+      // Re-enable the button when recognition ends
+      recognition.onend = () => {
+        speechInputButton.disabled = false;
+      };
+    }
+
     getDataInsights(){
       // replace with actual insights in production 
       const jsonData = {
@@ -284,17 +315,10 @@
       };
     }
     onCustomWidgetAfterUpdate(changedProperties) {
-      this.initMain();
-
-      //Initialise list elements
-      // const insights = this.getDataInsights();
-      // const insightsList = this.shadowRoot.getElementById("insightsList");
-      // insights.forEach(element => {
-      //   insightsList.innerHTML += ('<li>'+element+'</li>');
-      // });
-
       const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
       const apiKey = "sc9as24jlpp7994x";
+
+      this.initMain();
 
       this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
     }
