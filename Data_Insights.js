@@ -4,14 +4,6 @@
 <style>
     :host {}
 
-    body{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100 vh;
-      background: linear-gradient(to right bottom, #d13cff, #031f6a)
-    }
-
     /* Style for the container */
     div {
         margin: 25px auto;
