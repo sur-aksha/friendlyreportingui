@@ -120,7 +120,7 @@
   <div class="input-container">
       <input type="text" id="text-input" placeholder="Question...">
       <button id="speech-input-button">
-        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="30" height="30">
+        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="10" height="10">
       </button>
       <button id="insights-button">Get Insights</button>
   </div>
