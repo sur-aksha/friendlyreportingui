@@ -152,10 +152,6 @@
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
 
-      //configure speech recognition
-      this.configureSpeechRecognition(recognition, promptInput, speechInputButton);
-      
-
       //Get UI elements
       const promptInput = this.shadowRoot.getElementById("text-input");
       const generatedText = this.shadowRoot.getElementById("generated-text");
@@ -164,6 +160,9 @@
       const readInsightsButton = this.shadowRoot.getElementById("read-insights-button");
       const speechInputButton = this.shadowRoot.getElementById("speech-input-button");
 
+      //configure speech recognition
+      this.configureSpeechRecognition(recognition, promptInput, speechInputButton);
+      
       
 
       //Handle read insights button click
