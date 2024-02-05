@@ -125,7 +125,7 @@
       <button id="insights-button">Get Insights</button>
   </div>
   <div class="output-container">
-    <textarea id="generated-text" rows="10" cols="50" readonly></ textarea>
+    <textarea id="generated-text" rows="10" cols="50" readonly></textarea>
   </div>
     `;
   class Widget extends HTMLElement {
