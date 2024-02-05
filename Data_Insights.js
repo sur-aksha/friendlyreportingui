@@ -4,6 +4,14 @@
 <style>
     :host {}
 
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100 vh;
+      background: linear-gradient(to right bottom, #d13cff, #031f6a)
+    }
+
     /* Style for the container */
     div {
         margin: 25px auto;
@@ -134,6 +142,9 @@
       const { local_datetime = "" } = this._props || {};
       const { authentication = "" } = this._props || {};
 
+      // Window speech constants
+      const speechSynth = window.speechSynthesis;
+
       //Get UI elements
       const generatedText = this.shadowRoot.getElementById("generated-text");
       generatedText.value = "";
@@ -149,7 +160,7 @@
           const insightItem = element.textContent;
           console.log(insightItem);
           const speech = new SpeechSynthesisUtterance(insightItem);
-          window.speechSynthesis.speak(speech);
+          speechSynth.speak(speech);
         }
       });
 
