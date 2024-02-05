@@ -155,7 +155,7 @@
       // Configure recognition settings
       recognition.lang = 'en-US';
       recognition.interimResults = true;
-      this.configureSpeechRecognition(recognition);
+      this.configureSpeechRecognition(recognition, promptInput, speechInputButton);
       
 
       //Get UI elements
@@ -220,13 +220,13 @@
       });
     }
 
-    configureSpeechRecognition(recognition){
+    configureSpeechRecognition(recognition, promptInput, speechInputButton){
         // Handle recognition results
         recognition.onresult = (event) => {
           const result = event.results[event.results.length - 1];
           console.log(result);
           const transcript = result[0].transcript;
-          this.promptInput.textContent = transcript;
+          promptInput.textContent = transcript;
         };
 
         // Handle recognition errors
