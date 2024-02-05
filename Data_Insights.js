@@ -221,7 +221,6 @@
     configureSpeechRecognition(recognition, promptInput, speechInputButton){
         // Configure recognition settings
         recognition.lang = 'en-US';
-        recognition.continuous = true;
         recognition.interimResults = true;
 
         recognition.onresult = (event) => {
