@@ -155,7 +155,7 @@
       // Configure recognition settings
       recognition.continuous = true;
       recognition.interimResults = true;
-      this.initialiseSpeechRecognition(recognition);
+      
 
       //Get UI elements
       const generatedText = this.shadowRoot.getElementById("generated-text");
@@ -180,6 +180,24 @@
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
         recognition.start();
+
+        // Handle recognition results
+        recognition.onresult = (event) => {
+          const result = event.results[event.results.length - 1];
+          const transcript = result[0].transcript;
+          promptInput.textContent = transcript;
+        };
+
+        // Handle recognition errors
+        recognition.onerror = (event) => {
+          console.error('Speech recognition error:', event.error);
+        };
+
+        // Re-enable the button when recognition ends
+        recognition.onend = () => {
+          speechInputButton.disabled = false;
+        };
+
         speechInputButton.disabled = true;
       });
 
@@ -217,26 +235,6 @@
           })
           .catch((error) => console.error(`Fetch Error: ${error}`));
       });
-    }
-
-    initialiseSpeechRecognition(recognition){
-      const promptInput = this.shadowRoot.getElementById("text-input");
-      // Handle recognition results
-      recognition.onresult = (event) => {
-        const result = event.results[event.results.length - 1];
-        const transcript = result[0].transcript;
-        promptInput.textContent = transcript;
-      };
-
-      // Handle recognition errors
-      recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
-      };
-
-      // Re-enable the button when recognition ends
-      recognition.onend = () => {
-        speechInputButton.disabled = false;
-      };
     }
 
     getDataInsights(){
