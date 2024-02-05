@@ -225,10 +225,10 @@
         recognition.interimResults = true;
 
         recognition.onresult = (event) => {
-          const result = event.results[event.results.length - 1];
-          console.log(result);
-          const transcript = result[0].transcript;
-          promptInput.textContent = transcript;
+          const current = event.resultIndex;
+          
+          const transcript = event.results[current][0].transcript;
+          promptInput.value += transcript;
         };
 
         // Handle recognition errors
