@@ -229,7 +229,7 @@
           const current = event.resultIndex;
           
           const transcript = event.results[current][0].transcript;
-          promptInput.value += transcript;
+          promptInput.value = transcript;
         };
 
         // Handle recognition errors
