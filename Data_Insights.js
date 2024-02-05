@@ -155,7 +155,23 @@
       // Configure recognition settings
       recognition.lang = 'en-US';
       recognition.interimResults = true;
-      this.configureSpeechRecognition(recognition, promptInput, speechInputButton);
+      
+      recognition.onresult = (event) => {
+        const result = event.results[event.results.length - 1];
+        console.log(result);
+        const transcript = result[0].transcript;
+        promptInput.textContent = transcript;
+      };
+
+      // Handle recognition errors
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+      };
+
+      // Re-enable the button when recognition ends
+      recognition.onend = () => {
+        speechInputButton.disabled = false;
+      };
       
 
       //Get UI elements
@@ -188,7 +204,7 @@
       generateButton.addEventListener("click", async () => {
         const promptInput = this.shadowRoot.getElementById("text-input");
         const generatedText = this.shadowRoot.getElementById("generated-text");
-        generatedText.value = "We are processing your request";
+        generatedText.value = "We are processing your request...";
         const prompt = promptInput.value;
         
         // Define API endpoint metadata
@@ -218,26 +234,6 @@
           })
           .catch((error) => console.error(`Fetch Error: ${error}`));
       });
-    }
-
-    configureSpeechRecognition(recognition, promptInput, speechInputButton){
-        // Handle recognition results
-        recognition.onresult = (event) => {
-          const result = event.results[event.results.length - 1];
-          console.log(result);
-          const transcript = result[0].transcript;
-          promptInput.textContent = transcript;
-        };
-
-        // Handle recognition errors
-        recognition.onerror = (event) => {
-          console.error('Speech recognition error:', event.error);
-        };
-
-        // Re-enable the button when recognition ends
-        recognition.onend = () => {
-          speechInputButton.disabled = false;
-        };
     }
 
     getDataInsights(){
