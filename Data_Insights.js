@@ -155,7 +155,7 @@
       // Configure recognition settings
       recognition.continuous = true;
       recognition.interimResults = true;
-      initialiseSpeechRecognition(recognition);
+      this.initialiseSpeechRecognition(recognition);
 
       //Get UI elements
       const generatedText = this.shadowRoot.getElementById("generated-text");
