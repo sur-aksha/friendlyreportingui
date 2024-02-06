@@ -225,9 +225,10 @@
 
         recognition.onresult = (event) => {
           const current = event.resultIndex;
-          
           const transcript = event.results[current][0].transcript;
           promptInput.value = transcript;
+          promptInput.focus();
+          promptInput.setSelectionRange(promptInput.value.length, promptInput.value.length);
         };
 
         // Handle recognition errors
