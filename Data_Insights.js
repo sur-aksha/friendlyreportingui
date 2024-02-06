@@ -179,7 +179,7 @@
 
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
-        speechInputButton.bgcolor = "#F23";
+        speechInputButton.style.background = "#F23";
         speechInputButton.disabled = true;
         recognition.start();
       });
@@ -239,7 +239,7 @@
         // Re-enable the button when recognition ends
         recognition.onend = () => {
           speechInputButton.disabled = false;
-          speechInputButton.bgcolor = "#3cb6a9"
+          speechInputButton.style.background = "#3cb6a9"
         };
     }
     getDataInsights(){
