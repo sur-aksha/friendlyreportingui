@@ -88,6 +88,7 @@
       border-radius: 50%;
       cursor: pointer;
       width: 5%;
+      height: 7%;
   }
 
     #read-insights-button{
