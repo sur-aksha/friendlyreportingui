@@ -77,7 +77,7 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        width: 25%;
+        width: 18%;
     }
 
     #speech-input-button {
@@ -103,7 +103,7 @@
         padding: 10px;
         font-size: 16px;
         border: 1px solid #ccc;
-        border-radius: 5px;
+        border-radius: 5%;
         width: 70%;
     }
 </style>
@@ -120,7 +120,7 @@
   <div class="input-container">
       <input type="text" id="text-input" placeholder="Question...">
       <button id="speech-input-button">
-        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="10" height="10">
+        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
       </button>
       <button id="insights-button">Get Insights</button>
   </div>
@@ -180,6 +180,7 @@
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
         recognition.start();
+        speechInputButton.bgcolor = "#F23";
         speechInputButton.disabled = true;
       });
 
@@ -238,6 +239,7 @@
         // Re-enable the button when recognition ends
         recognition.onend = () => {
           speechInputButton.disabled = false;
+          speechInputButton.bgcolor = "#3cb6a9"
         };
     }
     getDataInsights(){
