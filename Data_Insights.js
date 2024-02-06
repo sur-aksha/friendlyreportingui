@@ -64,7 +64,7 @@
         font-size: 80%;
         border: 1px solid #ccc;
         border-radius: 5px;
-        width: 95%;
+        width: 96%;
         height: 80%;
     }
 
@@ -103,7 +103,7 @@
         padding: 10px;
         font-size: 16px;
         border: 1px solid #ccc;
-        border-radius: 5%;
+        border-radius: 7px;
         width: 70%;
     }
 </style>
