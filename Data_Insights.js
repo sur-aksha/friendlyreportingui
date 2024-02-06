@@ -77,7 +77,7 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        width: 18%;
+        width: 15%;
     }
 
     #speech-input-button {
@@ -179,9 +179,9 @@
 
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
-        recognition.start();
         speechInputButton.bgcolor = "#F23";
         speechInputButton.disabled = true;
+        recognition.start();
       });
 
       // Handle button click
