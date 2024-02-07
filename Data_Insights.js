@@ -62,6 +62,11 @@
     .no-pulse-button {
       -webkit-animation: none;
       background: #ebd;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 5%;
+      height: 7%;
     }
 
     /*Style for the speak button with pulse*/
@@ -121,14 +126,7 @@
 
     #speech-input-button {
       padding: 10px;
-      font-size: 16px;
-      background-color: #3cb6a9;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      width: 5%;
-      height: 7%;
-  }
+    }
 
     #read-insights-button{
       padding: 10px;
