@@ -72,14 +72,9 @@
     /*Style for the speak button with pulse*/
     .pulse-button{
       position: relative;
-      top: 50%;
-      left: 50%;
-      margin-left: -50px;
-      margin-top: -50px;
       display: block;
-      width: 100px;
-      height: 100px;
-      line-height: 100px;
+      width: 5%;
+      height: 7%;
       border: none;
       border-radius: 50%;
       background: #e67;
