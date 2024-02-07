@@ -4,6 +4,10 @@
 <style>
     :host {}
 
+    body {
+      height: 100vh;
+    }
+
     /* Style for the container */
     div {
         margin: 25px auto;
@@ -12,19 +16,19 @@
 
     /* Style for the speech input button */
     .microphone-button {
-      height: 3rem;
-      width: 3rem;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       border: 0;
       color: white;
-      background: #777;
+      background: #3a393b;
       margin-right: 0.25rem;
       outline: none;
       overflow: hidden;
       position: relative;
+      width: 10vw;
+      height: 10vh;
     }
 
     /* Style for the insights, title and list */
@@ -48,7 +52,7 @@
   
     .insights-list li {
       font-family: Arial, sans-serif;
-      color: #ffaa49;
+      color: #fff;
       margin-bottom: 10px;
     }
 
