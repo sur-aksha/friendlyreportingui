@@ -3,19 +3,24 @@
   template.innerHTML = `
 <style>
     :host {}
-
+    
     body {
       height: 100vh;
+      margin: 0;
     }
 
     /* Style for the container */
     div {
-        margin: 25px auto;
-        max-width: 90%;
+        margin: 15px auto;
+        max-width: 95%;
     }
+
+
 
     /* Style for the speech input button */
     .microphone-button {
+      height: 3rem;
+      width: 3rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -27,8 +32,6 @@
       outline: none;
       overflow: hidden;
       position: relative;
-      width: 10vw;
-      height: 10vh;
     }
 
     /* Style for the insights, title and list */
@@ -131,10 +134,7 @@
     </div>
     <div class="input-container">
         <input type="text" id="text-input" placeholder="Type or dictate to get insights">
-        <button id="speech-input-button" class="no-pulse-button">
-          <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
-        </button>
-        <button class="microphone-button">
+        <button id="speech-input-button" class="microphone-button">
              <svg viewBox="0 0 100 100" width="1.5rem" height="1.5rem" aria-hidden="true">
               <g stroke="currentColor" stroke-linecap="round" fill="none">
                 <path d="M50,15 50,50" stroke-width="20"  />
