@@ -147,9 +147,19 @@
       <ul id="insightsList" class="insights-list"></ul>
     </div>
     <div class="input-container">
-        <input type="text" id="text-input" placeholder="Question...">
+        <input type="text" id="text-input" placeholder="Type or dictate to get insights">
         <button id="speech-input-button" class="no-pulse-button">
           <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
+        </button>
+        <button type="button">
+            <span>Dictate</span>
+            <svg viewBox="0 0 100 100" width="1.5rem" height="1.5rem" aria-hidden="true">
+              <g stroke="currentColor" stroke-linecap="round" fill="none">
+                <path d="M50,15 50,50" stroke-width="20"  />
+                <path d="M30,35 C 25,84 75,84 70,35" stroke-width="6" />
+                <path d="M50,70 50,96" stroke-width="6" />
+              </g>
+            </svg>
         </button>
         <button id="insights-button">Get Insights</button>
     </div>
