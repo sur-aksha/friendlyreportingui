@@ -15,11 +15,53 @@
         max-width: 95%;
     }
 
+    /* Style for animating microphone */
+
+    .microphone-button button[type="button"] {
+      display: none;
+    }
+    
+    .microphone-button button[type="button"].visible {
+      display: grid;
+    }
+
+    @keyframes voiceRecording {
+      0%, 100% { d: path("M50,30 50,70"); }
+      50% { d: path("M50,10 50,90"); }
+    }
+    
+    .microphone-button.listening button[type="button"] path {
+      d: path("M50,30 50,70");
+      stroke-width: 18;
+      animation: voiceRecording 0.5s infinite;
+      transition: all 0.2s;
+    }
+    
+    .microphone-button.listening button[type="button"] path:nth-child(1) {
+      transform: translate(-30%);
+      animation-delay: -0.25s;
+    }
+    
+    .microphone-button.listening button[type="button"] path:nth-child(2) {
+      transform: translate(30%);
+      animation-delay: -0.25s;
+    }
+    
+    .microphone-button:focus-within button {
+      background: #444;
+    }
+    
+    .microphone-button button:focus {
+      background: #000;
+      border: 1px dashed white;
+      box-shadow: inset 0 0 0 1px white;
+    }
+
     /* Style for the speech input button */
     .microphone-button {
       padding: 2%;
       width: 5%;
-      display: flex;
+      display: grid;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
@@ -102,10 +144,10 @@
 
     #read-insights-button{
       padding: 1%;
-      background-color: #777;
+      background-color: #3a393b;
       border-radius: 50%;
       border: 0;
-      width: 10%;
+      width: 8%;
     }
 
     /* Style for the input field */
@@ -130,7 +172,7 @@
     </div>
     <div class="input-container">
         <input type="text" id="text-input" placeholder="Type or dictate to get insights">
-        <button id="speech-input-button" class="microphone-button">
+        <button type="button" id="speech-input-button" class="microphone-button">
              <svg viewBox="0 0 100 100" width="1.5rem" height="1.5rem" aria-hidden="true">
               <g stroke="currentColor" stroke-linecap="round" fill="none">
                 <path d="M50,15 50,50" stroke-width="20"  />
@@ -169,6 +211,7 @@
       const speechSynth = window.speechSynthesis;
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
+      
 
       //Get UI elements
       const promptInput = this.shadowRoot.getElementById("text-input");
@@ -197,7 +240,7 @@
 
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
-        speechInputButton.className = 'pulse-button';
+        speechInputButton.classList.add("listening");
         speechInputButton.disabled = true;
         recognition.start();
       });
@@ -252,12 +295,13 @@
         // Handle recognition errors
         recognition.onerror = (event) => {
           console.error('Speech recognition error:', event.error);
+          speechInputButton.classList.remove("listening");
         };
 
         // Re-enable the button when recognition ends
         recognition.onend = () => {
           speechInputButton.disabled = false;
-          speechInputButton.className = 'no-pulse-button';
+          speechInputButton.classList.remove("listening");
         };
     }
     getDataInsights(){
