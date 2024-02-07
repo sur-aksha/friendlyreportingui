@@ -7,7 +7,7 @@
     /* Style for the container */
     div {
         margin: 25px auto;
-        max-width: 85%;
+        max-width: 90%;
     }
 
     /* Style for the insights, title and list */
@@ -56,6 +56,45 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    /*Style for the speak button without pulse*/
+    .no-pulse-button {
+      -webkit-animation: none;
+      background: #ebd;
+    }
+
+    /*Style for the speak button with pulse*/
+    .pulse-button{
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
+      display: block;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      border: none;
+      border-radius: 50%;
+      background: #e67;
+      cursor: pointer;
+      box-shadow: 0 0 0 0 rgba(#e67, .5);
+      -webkit-animation: pulse 1.5s infinite;
+    }
+
+    @-webkit-keyframes pulse {
+      0% {
+        @include transform(scale(.9));
+      }
+      70% {
+        @include transform(scale(1));
+        box-shadow: 0 0 0 50px rgba(#e67, 0);
+      }
+        100% {
+        @include transform(scale(.9));
+        box-shadow: 0 0 0 0 rgba(#e67, 0);
+      }
     }
 
     /* Style for the generated text area */
@@ -109,24 +148,26 @@
     }
 </style>
 
-  <div class="insights">
-    <div class="insights-container">
-      <h1 class="insights-title">Data Insights</h1>
-      <button id="read-insights-button">
-        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="30" height="30">
-      </button>
+  <div class="widget-container">  
+    <div class="insights">
+      <div class="insights-container">
+        <h1 class="insights-title">Data Insights</h1>
+        <button id="read-insights-button">
+          <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="30" height="30">
+        </button>
+      </div>
+      <ul id="insightsList" class="insights-list"></ul>
     </div>
-    <ul id="insightsList" class="insights-list"></ul>
-  </div>
-  <div class="input-container">
-      <input type="text" id="text-input" placeholder="Question...">
-      <button id="speech-input-button">
-        <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
-      </button>
-      <button id="insights-button">Get Insights</button>
-  </div>
-  <div class="output-container">
-    <textarea id="generated-text" rows="10" cols="50" readonly></textarea>
+    <div class="input-container">
+        <input type="text" id="text-input" placeholder="Question...">
+        <button id="speech-input-button" class="no-pulse-button">
+          <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
+        </button>
+        <button id="insights-button">Get Insights</button>
+    </div>
+    <div class="output-container">
+      <textarea id="generated-text" rows="10" cols="50" readonly></textarea>
+    </div>
   </div>
     `;
   class Widget extends HTMLElement {
@@ -180,7 +221,7 @@
 
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
-        speechInputButton.style.background = "#F23";
+        speechInputButton.className = 'pulse-button';
         speechInputButton.disabled = true;
         recognition.start();
       });
@@ -240,7 +281,7 @@
         // Re-enable the button when recognition ends
         recognition.onend = () => {
           speechInputButton.disabled = false;
-          speechInputButton.style.background = "#3cb6a9"
+          speechInputButton.className = 'no-pulse-button';
         };
     }
     getDataInsights(){
