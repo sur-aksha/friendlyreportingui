@@ -62,7 +62,6 @@
     .no-pulse-button {
       -webkit-animation: none;
       background: #ebd;
-      border: none;
       border-radius: 50%;
       cursor: pointer;
       width: 5%;
@@ -117,10 +116,6 @@
         border-radius: 5px;
         cursor: pointer;
         width: 15%;
-    }
-
-    #speech-input-button {
-      padding: 10px;
     }
 
     #read-insights-button{
