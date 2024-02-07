@@ -61,7 +61,7 @@
     /*Style for the speak button without pulse*/
     .no-pulse-button {
       -webkit-animation: none;
-      background: #ebd;
+      background: none;
       border-radius: 50%;
       cursor: pointer;
       width: 5%;
