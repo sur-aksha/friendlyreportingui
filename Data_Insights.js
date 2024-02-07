@@ -11,16 +11,14 @@
 
     /* Style for the container */
     div {
-        margin: 15px auto;
+        margin: 3% auto;
         max-width: 95%;
     }
 
-
-
     /* Style for the speech input button */
     .microphone-button {
-      height: 3rem;
-      width: 3rem;
+      padding:1%;
+      width: 5%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -28,8 +26,6 @@
       border: 0;
       color: white;
       background: #3a393b;
-      margin-right: 0.25rem;
-      outline: none;
       overflow: hidden;
       position: relative;
     }
@@ -94,20 +90,21 @@
 
     /* Style for the button */
     #insights-button {
-        padding: 10px;
-        font-size: 16px;
+        padding: 1%;
+        font-size: 85%;
         background-color: #3cb6a9;
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 1rem;
         cursor: pointer;
         width: 15%;
     }
 
     #read-insights-button{
-      padding: 10px;
+      padding: 1%;
       background-color: #777;
       border-radius: 50%;
+      border: 0;
       width: 10%;
       height: 10%;
     }
