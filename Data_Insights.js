@@ -10,6 +10,23 @@
         max-width: 90%;
     }
 
+    /* Style for the speech input button */
+    .microphone-button {
+      height: 3rem;
+      width: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 0;
+      color: white;
+      background: #777;
+      margin-right: 0.25rem;
+      outline: none;
+      overflow: hidden;
+      position: relative;
+    }
+
     /* Style for the insights, title and list */
     .insights {
       display: block;
@@ -56,44 +73,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    /*Style for the speak button without pulse*/
-    .no-pulse-button {
-      -webkit-animation: none;
-      background: none;
-      border-radius: 50%;
-      cursor: pointer;
-      width: 5%;
-      height: 7%;
-    }
-
-    /*Style for the speak button with pulse*/
-    .pulse-button{
-      position: relative;
-      display: block;
-      width: 5%;
-      height: 7%;
-      border: none;
-      border-radius: 50%;
-      background: #e67;
-      cursor: pointer;
-      box-shadow: 0 0 0 0 rgba(#e67, .5);
-      -webkit-animation: pulse 1.5s infinite;
-    }
-
-    @-webkit-keyframes pulse {
-      0% {
-        @include transform(scale(.9));
-      }
-      70% {
-        @include transform(scale(1));
-        box-shadow: 0 0 0 50px rgba(#e67, 0);
-      }
-        100% {
-        @include transform(scale(.9));
-        box-shadow: 0 0 0 0 rgba(#e67, 0);
-      }
     }
 
     /* Style for the generated text area */
@@ -151,9 +130,8 @@
         <button id="speech-input-button" class="no-pulse-button">
           <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="20" height="20">
         </button>
-        <button type="button">
-            <span>Dictate</span>
-            <svg viewBox="0 0 100 100" width="1.5rem" height="1.5rem" aria-hidden="true">
+        <button class="microphone-button">
+             <svg viewBox="0 0 100 100" width="1.5rem" height="1.5rem" aria-hidden="true">
               <g stroke="currentColor" stroke-linecap="round" fill="none">
                 <path d="M50,15 50,50" stroke-width="20"  />
                 <path d="M30,35 C 25,84 75,84 70,35" stroke-width="6" />
