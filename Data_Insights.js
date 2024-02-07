@@ -21,7 +21,7 @@
 
     .insights-title {
       font-family: Arial, sans-serif;
-      color: #6ef;
+      color: #e28100;
       text-align: center;
     }
 
@@ -31,7 +31,7 @@
   
     .insights-list li {
       font-family: Arial, sans-serif;
-      color: #f97;
+      color: #ffaa49;
       margin-bottom: 10px;
     }
 
