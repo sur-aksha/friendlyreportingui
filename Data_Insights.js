@@ -17,7 +17,7 @@
 
     /* Style for the speech input button */
     .microphone-button {
-      padding:1%;
+      padding: 2%;
       width: 5%;
       display: flex;
       align-items: center;
@@ -90,7 +90,7 @@
 
     /* Style for the button */
     #insights-button {
-        padding: 1%;
+        padding: 2%;
         font-size: 85%;
         background-color: #3cb6a9;
         color: #fff;
@@ -106,7 +106,6 @@
       border-radius: 50%;
       border: 0;
       width: 10%;
-      height: 10%;
     }
 
     /* Style for the input field */
