@@ -14,15 +14,14 @@
 
     /* Style for the container */
     div {
-        margin: 3% auto;
-        max-width: 95%;
+        margin: 1rem auto;
+        max-width: 98%;
     }
 
     /* Style for speech input button & animating microphone */
 
     .microphone-button {
       padding: 2%;
-      width: 5%;
       display: grid;
       align-items: center;
       justify-content: center;
@@ -80,7 +79,7 @@
       display: block;
       margin: 0 auto;
       align-items: center;
-      padding: 20px;
+      padding: 1%;
       box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
     }
 
@@ -105,7 +104,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 5px;
+        width: 95%
     }
 
     /* Style for the output container */
@@ -113,7 +112,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 5px;
     }
 
     /* Style for insights container*/
@@ -121,6 +119,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 88%;
     }
 
     /* Style for the generated text area */
@@ -128,9 +127,8 @@
         padding: 1%;
         font-size: 80%;
         border: 1px solid #ccc;
-        border-radius: 1rem;
-        width: 96%;
-        height: 80%;
+        border-radius: 0.5rem;
+        width: 100%;
     }
 
     /* Style for the button */
@@ -142,7 +140,6 @@
         border: none;
         border-radius: 1rem;
         cursor: pointer;
-        width: 15%;
     }
 
     #read-insights-button{
@@ -150,13 +147,12 @@
       background-color: #3a393b;
       border-radius: 50%;
       border: 0;
-      width: 8%;
     }
 
     /* Style for the input field */
     #text-input {
-        padding: 10px;
-        font-size: 16px;
+        padding: 1.5%;
+        font-size: 95%;
         border: 1px solid #ccc;
         border-radius: 7px;
         width: 70%;
