@@ -129,6 +129,7 @@
         border: 1px solid #ccc;
         border-radius: 0.5rem;
         width: 100%;
+        height: auto;
     }
 
     /* Style for the button */
@@ -181,7 +182,7 @@
         <button id="insights-button">Get Insights</button>
     </div>
     <div class="output-container">
-      <textarea id="generated-text" readonly></textarea>
+      <textarea id="generated-text" rows="10" readonly></textarea>
     </div>
     `;
   class Widget extends HTMLElement {
