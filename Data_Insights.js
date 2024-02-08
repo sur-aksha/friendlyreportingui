@@ -158,8 +158,6 @@
         width: 70%;
     }
 </style>
-
-  <div class="widget-container">  
     <div class="insights">
       <div class="insights-container">
         <h1 class="insights-title">Data Insights</h1>
@@ -185,7 +183,6 @@
     <div class="output-container">
       <textarea id="generated-text" rows="10" cols="50" readonly></textarea>
     </div>
-  </div>
     `;
   class Widget extends HTMLElement {
     constructor() {
