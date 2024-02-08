@@ -5,6 +5,9 @@
     :host {}
     
     body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 100vh;
       margin: 0;
     }
@@ -15,8 +18,22 @@
         max-width: 95%;
     }
 
-    /* Style for animating microphone */
+    /* Style for speech input button & animating microphone */
 
+    .microphone-button {
+      padding: 2%;
+      width: 5%;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 0;
+      color: white;
+      background: #3a393b;
+      overflow: hidden;
+      position: relative;
+    }
+    
     .microphone-button button[type="button"] {
       display: none;
     }
@@ -55,21 +72,6 @@
       background: #000;
       border: 1px dashed white;
       box-shadow: inset 0 0 0 1px white;
-    }
-
-    /* Style for the speech input button */
-    .microphone-button {
-      padding: 2%;
-      width: 5%;
-      display: grid;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 0;
-      color: white;
-      background: #3a393b;
-      overflow: hidden;
-      position: relative;
     }
 
     /* Style for the insights, title and list */
