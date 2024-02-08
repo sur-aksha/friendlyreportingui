@@ -34,32 +34,24 @@
       position: relative;
     }
 
-    .microphone-button button[type="button"] {
-      display: none;
-    }
-    
-    .microphone-button button[type="button"].visible {
-      display: grid;
-    }
-
     @keyframes voiceRecording {
       0%, 100% { d: path("M50,30 50,70"); }
       50% { d: path("M50,10 50,90"); }
     }
     
-    .microphone-button.listening button[type="button"] path {
+    .microphone-button button[type="button"].listening path {
       d: path("M50,30 50,70");
       stroke-width: 18;
       animation: voiceRecording 0.5s infinite;
       transition: all 0.2s;
     }
     
-    .microphone-button.listening button[type="button"] path:nth-child(1) {
+    .microphone-button button[type="button"].listening path:nth-child(1) {
       transform: translate(-30%);
       animation-delay: -0.25s;
     }
     
-    .microphone-button.listening button[type="button"] path:nth-child(2) {
+    .microphone-button button[type="button"].listening path:nth-child(2) {
       transform: translate(30%);
       animation-delay: -0.25s;
     }
