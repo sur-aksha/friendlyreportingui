@@ -39,19 +39,19 @@
       50% { d: path("M50,10 50,90"); }
     }
     
-    .microphone-button button[type="button"].listening path {
+    .microphone-button .listening path {
       d: path("M50,30 50,70");
       stroke-width: 18;
       animation: voiceRecording 0.5s infinite;
       transition: all 0.2s;
     }
     
-    .microphone-button button[type="button"].listening path:nth-child(1) {
+    .microphone-button .listening path:nth-child(1) {
       transform: translate(-30%);
       animation-delay: -0.25s;
     }
     
-    .microphone-button button[type="button"].listening path:nth-child(2) {
+    .microphone-button .listening path:nth-child(2) {
       transform: translate(30%);
       animation-delay: -0.25s;
     }
@@ -162,7 +162,7 @@
     </div>
     <div class="input-container">
         <input type="text" id="text-input" placeholder="Type or dictate to get insights">
-        <button type="button" id="speech-input-button" class="microphone-button">
+        <button id="speech-input-button" class="microphone-button">
              <svg viewBox="0 0 100 100" width="1.5rem" height="1.5rem" aria-hidden="true">
               <g stroke="currentColor" stroke-linecap="round" fill="none">
                 <path d="M50,15 50,50" stroke-width="20"  />
