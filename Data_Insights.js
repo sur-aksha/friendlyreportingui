@@ -30,10 +30,11 @@
       border: 0;
       color: white;
       background: #3a393b;
+      cursor: pointer;
       overflow: hidden;
       position: relative;
     }
-    
+
     .microphone-button button[type="button"] {
       display: none;
     }
@@ -124,10 +125,10 @@
 
     /* Style for the generated text area */
     #generated-text {
-        padding: 10px;
+        padding: 1%;
         font-size: 80%;
         border: 1px solid #ccc;
-        border-radius: 5px;
+        border-radius: 1rem;
         width: 96%;
         height: 80%;
     }
