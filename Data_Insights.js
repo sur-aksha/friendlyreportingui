@@ -39,19 +39,19 @@
       50% { d: path("M50,10 50,90"); }
     }
     
-    .microphone-button .listening path {
+    .listening path {
       d: path("M50,30 50,70");
       stroke-width: 18;
       animation: voiceRecording 0.5s infinite;
       transition: all 0.2s;
     }
     
-    .microphone-button .listening path:nth-child(1) {
+    .listening path:nth-child(1) {
       transform: translate(-30%);
       animation-delay: -0.25s;
     }
     
-    .microphone-button .listening path:nth-child(2) {
+    .listening path:nth-child(2) {
       transform: translate(30%);
       animation-delay: -0.25s;
     }
