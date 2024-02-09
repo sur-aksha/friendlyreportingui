@@ -27,7 +27,7 @@
       justify-content: center;
       border-radius: 50%;
       border: 0;
-      color: white;
+      color: #c88500;
       background: #3a393b;
       cursor: pointer;
       overflow: hidden;
@@ -128,7 +128,7 @@
     #insights-button {
         padding: 2%;
         font-size: 85%;
-        background-color: #3cb6a9;
+        background-color: #00709f;
         color: #fff;
         border: none;
         border-radius: 1rem;
@@ -189,7 +189,7 @@
     // async connectedCallback() {
     //   this.initMain();
     // }
-    async initMain() {
+    async initMain(apiKey) {
       //Initialize parameters and set default as ""
       const { user_id = "" } = this._props || {};
       const { dashboard_name = "" } = this._props || {};
@@ -200,6 +200,8 @@
       const speechSynth = window.speechSynthesis;
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
+      const speaking = false;
+      const listening = false;
       
 
       //Get UI elements
@@ -218,17 +220,19 @@
       //Handle read insights button click
       readInsightsButton.addEventListener('click', () => {
         const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
-         
-        for(const element of insightsList){
-          const insightItem = element.textContent;
-          console.log(insightItem);
-          const speech = new SpeechSynthesisUtterance(insightItem);
-          speechSynth.speak(speech);
+        if(!listening){
+          for(const element of insightsList){
+            const insightItem = element.textContent;
+            console.log(insightItem);
+            const speech = new SpeechSynthesisUtterance(insightItem);
+            speechSynth.speak(speech);
+          }
         }
       });
 
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
+        listening = true; 
         speechInputButton.classList.add("listening");
         speechInputButton.disabled = true;
         recognition.start();
@@ -239,6 +243,8 @@
         const generatedText = this.shadowRoot.getElementById("generated-text");
         generatedText.value = "We are processing your request...";
         const prompt = promptInput.value;
+
+        console.log("USER NAME : ", user_id);
         
         // Define API endpoint metadata
         const url = "https://hda-friendly-reporting.me.sap.corp/api/v1/llms/navigation";
@@ -372,7 +378,7 @@
       const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
       const apiKey = "sc9as24jlpp7994x";
 
-      this.initMain();
+      this.initMain(apiKey);
 
       this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
     }
