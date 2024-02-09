@@ -190,9 +190,9 @@
       shadowRoot.appendChild(template.content.cloneNode(true));
       this._props = {};
     }
-    // async connectedCallback() {
-    //   this.initMain();
-    // }
+    async connectedCallback() {
+      this.initMain();
+    }
     async initMain() {
       //Initialize parameters and set default as ""
       const { user_id = "" } = this._props || {};
@@ -378,11 +378,12 @@
         ...this._props,
         ...changedProperties
       };
-      console.log("Props", this._props);
-      console.log("Changed props ", changedProperties);
+      
     }
     onCustomWidgetAfterUpdate(changedProperties) {
-      this.initMain();
+      //this.initMain();
+      console.log("Props", this._props);
+      console.log("Changed props ", changedProperties);
       this.getInsightsFromAPI();
     }
 
