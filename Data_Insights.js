@@ -383,15 +383,15 @@
     onCustomWidgetAfterUpdate(changedProperties) {
       //this.initMain();
       if("user_id" in changedProperties){
-        this.$user_id = changedProperties["user_id"];
+        this.userID = changedProperties["user_id"];
       }
-      console.log("User ID :", this.$user_id);
-      this.render(this.$user_id);
+      console.log("User ID :", this.userID);
+      
       this.getInsightsFromAPI();
     }
 
     get user_id(){
-      return this.$user_id;
+      return this.userID;
     }
 
     
