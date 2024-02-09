@@ -195,7 +195,7 @@
     }
     async initMain() {
       //Initialize parameters and set default as ""
-      const { user_id = "" } = this._props || {};
+      const { userID = "" } = this._props || {};
       const { dashboard_name = "" } = this._props || {};
       const { local_datetime = "" } = this._props || {};
 
@@ -382,10 +382,18 @@
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       //this.initMain();
-      console.log("Props", this._props);
-      console.log("Changed props ", changedProperties);
+      if("user_id" in changedProperties){
+        this.$user_id = changedProperties["user_id"];
+      }
+      this.render(this.$user_id);
       this.getInsightsFromAPI();
     }
+
+    get user_id(){
+      return this.$user_id;
+    }
+
+    
 
     // update the widget with insights from the API
     getInsightsFromAPI(){

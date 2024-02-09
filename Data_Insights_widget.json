@@ -47,7 +47,7 @@
             "description": "Widget Initialized."
         },
         "onPostMessageReceived": {
-            "description": "Post message triggered."
+            "description": "Post message received."
         }
     }
 }
