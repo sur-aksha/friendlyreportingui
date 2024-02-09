@@ -178,6 +178,10 @@
     </div>
     `;
   class Widget extends HTMLElement {
+
+    dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
+    apiKey = "sc9as24jlpp7994x";
+
     constructor() {
       super();
       let shadowRoot = this.attachShadow({
@@ -189,7 +193,7 @@
     // async connectedCallback() {
     //   this.initMain();
     // }
-    async initMain(apiKey) {
+    async initMain() {
       //Initialize parameters and set default as ""
       const { user_id = "" } = this._props || {};
       const { dashboard_name = "" } = this._props || {};
@@ -245,7 +249,7 @@
         generatedText.value = "We are processing your request...";
         const prompt = promptInput.value;
 
-        console.log("USER NAME : ", user_id);
+        console.log("USER NAME : ", Application.getUserInfo());
         
         // Define API endpoint metadata
         const url = "https://hda-friendly-reporting.me.sap.corp/api/v1/llms/navigation";
@@ -376,16 +380,12 @@
       };
     }
     onCustomWidgetAfterUpdate(changedProperties) {
-      const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
-      const apiKey = "sc9as24jlpp7994x";
-
-      this.initMain(apiKey);
-
-      this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
+      this.initMain();
+      this.getInsightsFromAPI();
     }
 
     // update the widget with insights from the API
-    getInsightsFromAPI(apiURL, apiKey){
+    getInsightsFromAPI(){
     
       const insightsList = this.shadowRoot.getElementById("insightsList");
       const requestOptions = {
@@ -394,7 +394,7 @@
           'Authorization': `Bearer ${apiKey}`,
         },
       };
-      fetch(apiURL, requestOptions)
+      fetch(dataInsightsAPIUrl, requestOptions)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response failed');
