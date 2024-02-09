@@ -249,8 +249,6 @@
         const generatedText = this.shadowRoot.getElementById("generated-text");
         generatedText.value = "We are processing your request...";
         const prompt = promptInput.value;
-
-        console.log("USER NAME : ", Application.getUserInfo());
         
         // Define API endpoint metadata
         const url = "https://hda-friendly-reporting.me.sap.corp/api/v1/llms/navigation";
@@ -385,7 +383,7 @@
       //this.initMain();
       if("user_id" in changedProperties){
         this.userID = changedProperties["user_id"];
-        console.log("User ID :", this.userID);
+        console.log("User ID from application :", this.userID);
       }
       
       this.getInsightsFromAPI();
