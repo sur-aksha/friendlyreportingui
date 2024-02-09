@@ -385,6 +385,7 @@
       if("user_id" in changedProperties){
         this.$user_id = changedProperties["user_id"];
       }
+      console.log("User ID :", this.$user_id);
       this.render(this.$user_id);
       this.getInsightsFromAPI();
     }
