@@ -219,7 +219,8 @@
       //configure speech recognition
       this.configureSpeechRecognition(recognition, promptInput, speechInputButton);
       
-      
+      // call API for insights
+      this.getInsightsFromAPI();
 
       //Handle read insights button click
       readInsightsButton.addEventListener('click', () => {
@@ -387,8 +388,6 @@
         this.userID = changedProperties["user_id"];
         console.log("User ID from application :", this.userID);
       }
-      
-      this.getInsightsFromAPI();
     }
 
     get user_id(){
