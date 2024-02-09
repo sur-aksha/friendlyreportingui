@@ -379,6 +379,7 @@
         ...changedProperties
       };
       console.log("Props", this._props);
+      console.log("Changed props ", changedProperties);
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       this.initMain();
