@@ -178,7 +178,6 @@
     </div>
     `;
   class Widget extends HTMLElement {
-    apiKey = "sc9as24jlpp7994x";
     constructor() {
       super();
       let shadowRoot = this.attachShadow({
@@ -190,18 +189,17 @@
     // async connectedCallback() {
     //   this.initMain();
     // }
-    async initMain() {
+    async initMain(apiKey) {
       //Initialize parameters and set default as ""
       const { user_id = "" } = this._props || {};
       const { dashboard_name = "" } = this._props || {};
       const { local_datetime = "" } = this._props || {};
-      
+
       // Window speech constants
       const speechSynth = window.speechSynthesis;
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
       const speaking = false;
-      const listening = false;
       
 
       //Get UI elements
@@ -220,7 +218,7 @@
       //Handle read insights button click
       readInsightsButton.addEventListener('click', () => {
         const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
-        if(!listening){
+        if(!speechInputButton.classList.contains("listening")){
           this.speaking = true;
           for(const element of insightsList){
             const insightItem = element.textContent;
@@ -235,7 +233,6 @@
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
         if(!speaking){
-          this.listening = true; 
           speechInputButton.classList.add("listening");
           speechInputButton.disabled = true;
           recognition.start();  
@@ -257,7 +254,7 @@
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${this.apiKey}` //to be set from the application side -------------------------
+            'Authorization': `Bearer ${apiKey}` //to be set from the application side -------------------------
           },
           body: JSON.stringify(data)
         };
@@ -380,20 +377,21 @@
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
+      const apiKey = "sc9as24jlpp7994x";
 
-      this.initMain();
+      this.initMain(apiKey);
 
-      this.getInsightsFromAPI(dataInsightsAPIUrl);
+      this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
     }
 
     // update the widget with insights from the API
-    getInsightsFromAPI(apiURL){
+    getInsightsFromAPI(apiURL, apiKey){
     
       const insightsList = this.shadowRoot.getElementById("insightsList");
       const requestOptions = {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
+          'Authorization': `Bearer ${apiKey}`,
         },
       };
       fetch(apiURL, requestOptions)
