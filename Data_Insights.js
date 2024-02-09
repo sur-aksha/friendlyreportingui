@@ -181,6 +181,7 @@
 
     dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
     apiKey = "sc9as24jlpp7994x";
+    userID = this._props || {};
 
     constructor() {
       super();
@@ -195,7 +196,7 @@
     }
     async initMain() {
       //Initialize parameters and set default as ""
-      const { userID = "" } = this._props || {};
+      const 
       const { dashboard_name = "" } = this._props || {};
       const { local_datetime = "" } = this._props || {};
 
@@ -384,8 +385,8 @@
       //this.initMain();
       if("user_id" in changedProperties){
         this.userID = changedProperties["user_id"];
+        console.log("User ID :", this.userID);
       }
-      console.log("User ID :", this.userID);
       
       this.getInsightsFromAPI();
     }
