@@ -257,7 +257,7 @@
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}` //to be set from the application side -------------------------
+            'Authorization': `Bearer ${this.apiKey}` //to be set from the application side -------------------------
           },
           body: JSON.stringify(data)
         };
@@ -393,7 +393,7 @@
       const requestOptions = {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${apiKey}`,
+          'Authorization': `Bearer ${this.apiKey}`,
         },
       };
       fetch(apiURL, requestOptions)
