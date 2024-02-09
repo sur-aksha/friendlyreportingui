@@ -192,6 +192,7 @@
       this._props = {};
     }
     async connectedCallback() {
+      console.log("Connected callback");
       this.initMain();
     }
     async initMain() {
@@ -381,6 +382,7 @@
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       //this.initMain();
+      console.log("after update");
       if("user_id" in changedProperties){
         this.userID = changedProperties["user_id"];
         console.log("User ID from application :", this.userID);
