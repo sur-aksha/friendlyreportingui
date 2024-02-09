@@ -178,6 +178,7 @@
     </div>
     `;
   class Widget extends HTMLElement {
+    apiKey = "sc9as24jlpp7994x";
     constructor() {
       super();
       let shadowRoot = this.attachShadow({
@@ -189,13 +190,12 @@
     // async connectedCallback() {
     //   this.initMain();
     // }
-    async initMain(apiKey) {
+    async initMain() {
       //Initialize parameters and set default as ""
       const { user_id = "" } = this._props || {};
       const { dashboard_name = "" } = this._props || {};
       const { local_datetime = "" } = this._props || {};
-      const { authentication = "" } = this._props || {};
-
+      
       // Window speech constants
       const speechSynth = window.speechSynthesis;
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -221,21 +221,25 @@
       readInsightsButton.addEventListener('click', () => {
         const insightsList = this.shadowRoot.getElementById("insightsList").getElementsByTagName("li");
         if(!listening){
+          this.speaking = true;
           for(const element of insightsList){
             const insightItem = element.textContent;
             console.log(insightItem);
             const speech = new SpeechSynthesisUtterance(insightItem);
             speechSynth.speak(speech);
           }
+          this.speaking = false;
         }
       });
 
       // Handle speech input button click
       speechInputButton.addEventListener('click', () => {
-        listening = true; 
-        speechInputButton.classList.add("listening");
-        speechInputButton.disabled = true;
-        recognition.start();
+        if(!speaking){
+          this.listening = true; 
+          speechInputButton.classList.add("listening");
+          speechInputButton.disabled = true;
+          recognition.start();  
+        }
       });
 
       // Handle button click
@@ -376,15 +380,14 @@
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       const dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
-      const apiKey = "sc9as24jlpp7994x";
 
-      this.initMain(apiKey);
+      this.initMain();
 
-      this.getInsightsFromAPI(dataInsightsAPIUrl, apiKey);
+      this.getInsightsFromAPI(dataInsightsAPIUrl);
     }
 
     // update the widget with insights from the API
-    getInsightsFromAPI(apiURL, apiKey){
+    getInsightsFromAPI(apiURL){
     
       const insightsList = this.shadowRoot.getElementById("insightsList");
       const requestOptions = {
