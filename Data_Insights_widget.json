@@ -23,7 +23,7 @@
         "authentication": { "type": "string", "default": "Bearer sc9as24jlpp7994x" }
     },
     "methods": {
-        "setUserId": {
+        "setUserID": {
             "description": "Set user id",
             "parameters": [ { "name": "user_id", "type": "string" } ],
             "body": "this.user_id = user_id;"
@@ -42,9 +42,6 @@
     "events": {
         "onClick": {
             "description": "User Clicked."
-        },
-        "onInitialization":{
-            "description": "Initialized."
         }
     }
 }
