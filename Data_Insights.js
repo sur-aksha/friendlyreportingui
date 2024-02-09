@@ -380,6 +380,7 @@
       };
     }
     onCustomWidgetAfterUpdate(changedProperties) {
+      console.log("Changed properties", changedProperties);
       this.initMain();
       this.getInsightsFromAPI();
     }
