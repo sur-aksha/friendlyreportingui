@@ -196,7 +196,7 @@
     }
     async initMain() {
       //Initialize parameters and set default as ""
-      const 
+      
       const { dashboard_name = "" } = this._props || {};
       const { local_datetime = "" } = this._props || {};
 
