@@ -19,7 +19,8 @@
     "properties": {
         "user_id": { "type": "string" },
         "dashboard_name": { "type": "string" },
-        "local_datetime": { "type": "string"  }
+        "local_datetime": { "type": "string"  },
+        "authentication": { "type": "string", "default": "Bearer sc9as24jlpp7994x" }
     },
     "methods": {
         "setUserID": {
