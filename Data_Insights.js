@@ -394,8 +394,6 @@
       return this.userID;
     }
 
-    
-
     // update the widget with insights from the API
     getInsightsFromAPI(){
     
