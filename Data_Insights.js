@@ -194,7 +194,6 @@
     }
     async connectedCallback() {
       console.log("Connected callback called");
-      this.initMain();
     }
     async initMain() {
       //Initialize parameters and set default as ""
@@ -216,6 +215,9 @@
       const generateButton = this.shadowRoot.getElementById("insights-button");
       const readInsightsButton = this.shadowRoot.getElementById("read-insights-button");
       const speechInputButton = this.shadowRoot.getElementById("speech-input-button");
+
+      // call API for insights
+      this.getInsightsFromAPI();
 
       //configure speech recognition
       this.configureSpeechRecognition(recognition, promptInput, speechInputButton);
@@ -387,8 +389,7 @@
       if("user_id" in changedProperties){
         this.userID = changedProperties["user_id"];
         console.log("User ID from application :", this.userID);
-        // call API for insights
-        this.getInsightsFromAPI();
+        this.initMain();
       }
     }
 
