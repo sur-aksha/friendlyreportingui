@@ -400,11 +400,14 @@
     getInsightsFromAPI(){
     
       const insightsList = this.shadowRoot.getElementById("insightsList");
+      const data = { user_id: this.userID };
       const requestOptions = {
-        method: 'GET',
+        method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.apiKey}`
         },
+        body: JSON.stringify(data)
       };
       fetch(this.dataInsightsAPIUrl, requestOptions)
         .then((response) => {
