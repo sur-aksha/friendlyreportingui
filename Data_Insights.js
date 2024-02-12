@@ -372,12 +372,14 @@
       return arr;
     }
     onCustomWidgetBeforeUpdate(changedProperties) {
-      console.log("Before Update called");
       this._props = {
         ...this._props,
         ...changedProperties
       };
-      
+    }
+    onInitialization() {
+      console.log("onInitialization called", Application.getUserInfo().id);
+      this.userID = Application.getUserInfo().id;
     }
     onCustomWidgetAfterUpdate(changedProperties) {
       //this.initMain();
