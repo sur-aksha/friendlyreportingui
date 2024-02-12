@@ -264,7 +264,7 @@
           body: JSON.stringify(data)
         };
       // API call and output processing
-       await fetch(url, options)
+       await fetch(this.getInsightsAPIUrl, options)
           .then((response) => {
             const res = response;
             if (res.ok) {
