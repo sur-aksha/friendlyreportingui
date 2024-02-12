@@ -180,6 +180,7 @@
   class Widget extends HTMLElement {
 
     dataInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/insights";
+    getInsightsAPIUrl = "https://hda-friendly-reporting.me.sap.corp/api/v1/custom_insight";
     apiKey = "sc9as24jlpp7994x";
     userID = this._props || {};
 
@@ -253,8 +254,7 @@
         const prompt = promptInput.value;
         
         // Define API endpoint metadata
-        const url = "https://hda-friendly-reporting.me.sap.corp/api/v1/llms/navigation";
-        const data = { user_prompt: prompt };
+        const data = { user_prompt: prompt, user_id: this.userID };
         const options = {
           method: "POST",
           headers: {
@@ -274,7 +274,7 @@
             }
           })
           .then((data) => {
-            const output_guide = data.output_guide;
+            const output_guide = data.message;
             generatedText.value  = output_guide;
           })
           .catch((error) => console.error(`Fetch Error: ${error}`));
