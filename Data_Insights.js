@@ -401,6 +401,7 @@
     
       const insightsList = this.shadowRoot.getElementById("insightsList");
       const data = { user_id: this.userID };
+      console.log("Data contents : ", data);
       const requestOptions = {
         method: 'POST',
         headers: {
