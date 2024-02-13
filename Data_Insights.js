@@ -194,11 +194,9 @@
     }
     async connectedCallback() {
       console.log("Connected callback called");
-      console.log("Button value example :", this.template.querySelctor('insights-button'));
     }
     async initMain() {
       //Initialize parameters and set default as ""
-      console.log("From main : ", this.template.querySelctor('insights-button'));
       const { dashboard_name = "" } = this._props || {};
       const { local_datetime = "" } = this._props || {};
 
