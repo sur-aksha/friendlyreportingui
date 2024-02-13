@@ -99,6 +99,12 @@
         width: 95%
     }
 
+    /* Style for the read insights button image */
+    .img-read-insights {
+      width: 10 px;
+      height: 10px;
+    }
+
     /* Style for the output container */
     .output-container {
         display: flex;
@@ -151,17 +157,13 @@
         width: 70%;
     }
 
-    /* Style for the read insights button image */
-    #img-read-insights {
-      width: 10 px;
-      height: 10px;
-    }
+    
 </style>
     <div class="insights">
       <div class="insights-container">
         <h1 class="insights-title">Data Insights</h1>
         <button id="read-insights-button">
-          <img id="img-read-insights" src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/>
+          <img class="img-read-insights" src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/>
         </button>
       </div>
       <ul id="insightsList" class="insights-list"></ul>
