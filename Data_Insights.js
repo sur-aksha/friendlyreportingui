@@ -101,8 +101,7 @@
 
     /* Style for the read insights button image */
     .img-read-insights {
-      width: 10 px;
-      height: 10px;
+      height: 1%;
     }
 
     /* Style for the output container */
