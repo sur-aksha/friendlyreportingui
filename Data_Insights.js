@@ -117,10 +117,10 @@
     /* Style for the generated text area */
     #generated-text {
         padding: 1%;
-        font-size: 80%;
+        font-size: 90%;
         border: 1px solid #ccc;
         border-radius: 0.5rem;
-        width: 100%;
+        width: 97%;
         height: auto;
     }
 
@@ -194,10 +194,11 @@
     }
     async connectedCallback() {
       console.log("Connected callback called");
+      console.log("Button value example :", this.template.querySelctor('insights-button'));
     }
     async initMain() {
       //Initialize parameters and set default as ""
-      
+      console.log("From main : ", this.template.querySelctor('insights-button'));
       const { dashboard_name = "" } = this._props || {};
       const { local_datetime = "" } = this._props || {};
 
