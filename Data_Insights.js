@@ -150,12 +150,18 @@
         border-radius: 7px;
         width: 70%;
     }
+
+    /* Style for the read insights button image */
+    #img-read-insights {
+      width: 50%;
+      height: 50%;
+    }
 </style>
     <div class="insights">
       <div class="insights-container">
         <h1 class="insights-title">Data Insights</h1>
         <button id="read-insights-button">
-          <img src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/ width="30" height="30">
+          <img id="img-read-insights" src="https://sur-aksha.github.io/friendlyreportingui.github.io/microphone.png"/>
         </button>
       </div>
       <ul id="insightsList" class="insights-list"></ul>
