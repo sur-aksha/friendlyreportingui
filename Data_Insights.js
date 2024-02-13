@@ -153,8 +153,8 @@
 
     /* Style for the read insights button image */
     #img-read-insights {
-      width: 50%;
-      height: 50%;
+      width: 5%;
+      height: 5%;
     }
 </style>
     <div class="insights">
